@@ -1,0 +1,30 @@
+<ion-view view-title="Slide">
+    <ion-nav-buttons side="left">
+        <a class="button icon-left ion-chevron-left button-clear button-dark" ng-click="go_home()"></a>
+    </ion-nav-buttons>
+    <ion-content style="top:60px">
+      <ion-slide-box on-slide-changed="slideHasChanged()" ng-style="bigpictureheight" show-pager="false">
+        <ion-slide ng-repeat="photo in photos">
+          <div style="text-align:center">
+            <img ng-src="{{photo.posterURL}}" style="width:100%;height:100%" ng-click="go_art('app.slidepaints',$index)">
+          </div>
+        </ion-slide>
+      </ion-slide-box>
+      <div class="flexslider" style="overflow: hidden; position: relative;">
+        <ul class="slides" style="width: 2400%; transition-duration: 0.6s;" ng-style="smallpictureslider">
+          <li ng-repeat="photo in photos" style="float: left; display: block;" ng-click="jumpto($index)" 
+          ng-class="{active:isActive($index)}" ng-style="smallpictureswidth">
+            <img ng-src="{{photo.posterThumbnailURL}}" />
+          </li>
+        </ul>
+        <ul class="flex-direction-nav">
+          <li>
+            <a class="flex-prev" ng-class="{flexdisabled : isFirst()}"></a>
+          </li>
+          <li>
+            <a class="flex-next" ng-class="{flexdisabled : isLast()}"></a>
+          </li>
+        </ul>
+      </div>
+    </ion-content>
+</ion-view>

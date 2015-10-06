@@ -1,0 +1,61 @@
+<ion-view view-title="展会详情">
+    <ion-nav-buttons side="left">
+        <a class="button icon-left ion-chevron-left button-clear button-dark" ng-click="go()"></a>
+    </ion-nav-buttons>
+    <ion-content>
+        <div class="list card" ng-repeat="info in exhibition.value">
+            <div class="row">
+                <div class="Img"> <img ng-src={{info.posterURL}}>
+                </div>
+                <div class="Info" >
+                    <div><h2>{{info.subject}}</h2></div>
+                    <div>
+                    <a class="button icon-left ion-ios-barcode button-clear button-dark" ng-href="#/app/tickect/{{info.id}}">
+                    电子门票
+                    </a></div>f
+                </div>
+                    
+            </div>
+            <div class="row">
+                <div class="col">展览日期: </div>
+                <div class="col col-75"> {{date1}}-{{date2}}</div>
+            </div>
+            <div class="row">
+                <div class="col">开幕时间:</div>
+                <div class="col col-75">{{info.startTime}}-{{info.endTime}}<span><a  ng-click="openModal()">加入行程</a></span> </div>
+            </div>
+            <div class="row">
+                <div class="col">展览地点:</div>
+                <div class="col col-75">{{info.address}}<span><a ng-href="#/app/map/{{info.address}}/{{info.id}}">查看路线</a></span> </div>
+            </div>
+            <div class="row">
+                <div class="col">策展人:</div>
+                <div class="col col-75"> {{info.curator}}</div>
+            </div>
+            <div class="row" >
+                <div class="col">类别:</div>
+                <div class="col col-75" > <div ng-repeat="cat in info.artCategory">{{cat.cateName}}</div></div>
+            </div>                      
+            </br>
+
+            <div class="item item-body">
+                <h2>主题介绍</h2>
+                <div class="desc">{{info.decsription}}</div>
+            </div>
+            <div class="item item-body">  
+                <span class="recommend"><h2>推荐作品  </h2></span>
+                <span class="more"><a ng-href="#/app/tabs/paints/{{info.id}}/{{info.subject}}">更多></a></span>
+                <br>
+                <div class="list">
+                  <a ng-repeat="art in info.Art | filter:{ recommended:true}" 
+                     class="item item-thumbnail-left" 
+                     ng-href="#/app/paint/{{info.id}}/{{art._id}}//app.exhibition"> 
+                    <img ng-src={{art.posterThumbnailURL}} >
+                    <h2>《{{art.title}}》</h2>
+                    <p>作者： {{art.artist.name}}</p>
+                  </a>
+                </div>           
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,80 @@
+<ion-view view-title="搜索">
+    <ion-nav-buttons side="left">
+        <a class="button icon-left ion-chevron-left button-clear button-dark" ng-click="go_back()"></a>
+    </ion-nav-buttons>
+
+    <ion-content scroll="false" style="top:60px">
+        <div class="bar item-input-inset" style="padding:5px">
+            <label class="item-input-wrapper">
+                <input type="text" ng-model="query.name" ng-change="search()">
+                <div on-tap="search()">
+                    <i class="icon ion-search placeholder-icon"></i>
+                </div>
+            </label>
+        </div>
+        <div style="position:relative;z-index:1;background-color:white">
+            <div class = 'row'>
+                <div class = 'col col-center tab-button button-small tab-button-outline' ng-class="{'tab-button-actived':iscurrentchoosed(0)}"   on-tap ="changechoosed(0)">展会</div>
+                <div class = 'col col-center tab-button button-small tab-button-outline' ng-class="{'tab-button-actived':iscurrentchoosed(1)}" on-tap = "changechoosed(1)"
+                style="margin:0px -1px">展品</div>
+                <div class = 'col col-center tab-button button-small tab-button-outline' ng-class="{'tab-button-actived':iscurrentchoosed(2)}" on-tap = "changechoosed(2)">展馆</div>
+            </div>
+        </div>
+     </ion-content>
+    
+    <ion-content style="top:136px">
+         <div class="list margin-list" ng-repeat="exhibition in searchResult.value" ng-if="iscurrentchoosed(0)">
+            <div class="img">
+                <a>
+                    <img ng-src="{{exhibition.posterURL}}" ng-click="go_exhibition('app.exhibition',exhibition);">
+                </a>
+            </div>
+            <div class="main">
+                <p> 主题:{{exhibition.subject}}</br>
+                    单位:{{exhibition.vanue}}</br>
+                    时间:{{exhibition.startDate}}
+                </p>
+            </div>
+            <div class="main_1">
+                <p> 主题:{{exhibition.subject}}</br>
+                    单位:{{exhibition.vanue}}</br>
+                    时间:{{exhibition.startDate}}
+                </p>
+            </div>
+            <div class="main-front-position">
+                <p>
+                    展览中...
+                </p>
+            </div>
+        </div>
+
+        <div class="list margin-list" ng-repeat="art in searchResult.value" ng-if="iscurrentchoosed(1)">
+            <div class="img">
+                <a>
+                    <img ng-src="{{art.posterURL}}" ng-click="go_art('app.slidepaints',$index)">
+                </a>
+            </div>
+            <div class="main">
+                <p> 作者:{{art.artist.name}}</br>
+                    年代:{{art.year}}</br>
+                    类别:{{art.cateName}}
+                </p>
+            </div>
+            <div class="main_1">
+                <p> 作者:{{art.artist.name}}</br>
+                    年代:{{art.year}}</br>
+                    类别:{{art.cateName}}
+                </p>
+            </div>
+        </div>
+
+        <div class="list margin-list" ng-repeat="gallery in searchResult.value" ng-if="iscurrentchoosed(2)">
+            <div class="img">
+                <a>
+                    <img ng-src="{{gallery.posterURL}}" ng-click="go_gallery('app.exhibitions',gallery);">
+                </a>
+                <div class="galleries-name">机构名称:{{gallery.name}}</div>
+            </div>
+        </div>
+
+</ion-view>

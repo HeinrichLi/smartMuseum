@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style_image.css" rel="stylesheet">
+    <!-- customer radio button  style css-->
+    <style>
+    .item-radio input:checked + .radio-content .item-content {
+        /* style the item content when its checked */
+        background: #f7f7f7;
+    }
+    
+    .item-radio input:checked + .radio-content .radio-icon {
+        /* show the checkmark icon when its checked */
+        visibility: visible;
+    }
+    </style>
+    <!-- <link href="css/style_.css" rel="stylesheet"> -->
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/ionic-service-core/ionic-core.js"></script>
+    <script src="lib/ionic-service-push/ionic-push.js"></script>
+    <script src="js/ng-cordova.min.js"></script>
+    <script src="cordova.js"></script>
+    <!-- map lib -->
+    <script src="js/map.js"></script>
+    <script src="js/directives/radio.button.js"></script>
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <script src="js/core/core.js"></script>
+    <script src="js/core/config/config.js"></script>
+    <!-- main module-->
+    <!-- main service -->
+    <script src="js/core/services/main/ad.service.js"></script>
+    <script src="js/core/services/main/main.service.js"></script>
+    <script src="js/core/services/login/login.service.js"></script>
+    <!-- ui framework -->
+    <script src="js/routes/layout/layout.js"></script>
+    <script src="js/routes/layout/layout.route.js"></script>
+    <script src="js/routes/layout/layout.controller.js"></script>
+    <!-- main framework-->
+    <script src="js/routes/main/main.js"></script>
+    <script src="js/routes/main/main.route.js"></script>
+    <script src="js/routes/main/main.controller.js"></script>
+    <!-- new ui framework-->
+    <script src="js/routes/news/news.js"></script>
+    <script src="js/routes/news/news.route.js"></script>
+    <script src="js/routes/news/news.controller.js"></script>
+    <!-- exhibitions module-->
+    <!-- exhibitions and exhibition service -->
+    <script src="js/core/services/exhibitions/exhibitions.service.js"></script>
+    <script src="js/core/services/exhibitions/exhibition.service.js"></script>
+    <script src="js/core/services/exhibitions/addPlan.service.js"></script>
+    <!-- exhibitions ui framework-->
+    <script src="js/routes/exhibitions/exhibitions.js"></script>
+    <script src="js/routes/exhibitions/exhibitions.route.js"></script>
+    <script src="js/routes/exhibitions/exhibitions.controller.js"></script>
+    <!-- exhibition ui framework-->
+    <script src="js/routes/exhibition/exhibition.js"></script>
+    <script src="js/routes/exhibition/exhibition.route.js"></script>
+    <script src="js/routes/exhibition/exhibition.controller.js"></script>
+    <script src="js/routes/exhibition/sub_exhibition.controller.js"></script>
+    <!-- ticket ui framework -->
+    <script src="js/routes/ticket/ticket.js"></script>
+    <script src="js/routes/ticket/ticket.route.js"></script>
+    <script src="js/routes/ticket/ticket.controller.js"></script>
+    <!-- galleries module -->
+    <!-- galleries service -->
+    <script src="js/core/services/galleries/galleries.service.js"></script>
+    <script src="js/core/services/galleries/gallery.service.js"></script>
+    <script src="js/core/services/common/refresh.service.js"></script>
+    <!-- galleries ui framework -->
+    <script src="js/routes/galleries/galleries.js"></script>
+    <script src="js/routes/galleries/galleries.route.js"></script>
+    <script src="js/routes/galleries/galleries.controller.js"></script>
+    <!-- gallery ui framework -->
+    <script src="js/routes/gallery/gallery.js"></script>
+    <script src="js/routes/gallery/gallery.route.js"></script>
+    <script src="js/routes/gallery/gallery.controller.js"></script>
+    <!-- arts module -->
+    <!-- arts related to service -->
+    <script src="js/core/services/arts/arts.service.js"></script>
+    <script src="js/core/services/arts/addFav.service.js"></script>
+    <script src="js/core/services/arts/addPraise.service.js"></script>
+    <script src="js/core/services/arts/art.service.js"></script>
+    <script src="js/core/services/arts/artPraiseInfo.service.js"></script>
+    <script src="js/core/services/arts/myFavInfo.service.js"></script>
+    <script src="js/core/services/arts/myPraiseInfo.service.js"></script>
+    <script src="js/core/services/arts/removeFav.service.js"></script>
+    <script src="js/core/services/arts/removePraise.service.js"></script>
+    <script src="js/core/services/arts/passArtsList.service.js"></script>
+    <!-- arts ui framework -->
+    <script src="js/routes/arts/arts.js"></script>
+    <script src="js/routes/arts/arts.route.js"></script>
+    <script src="js/routes/arts/arts.controller.js"></script>
+    <script src="js/routes/arts/paints.controller.js"></script>
+    <!-- art ui framework -->
+    <script src="js/routes/art/art.js"></script>
+    <script src="js/routes/art/art.route.js"></script>
+    <script src="js/routes/art/art.controller.js"></script>
+    <!-- slidegrid ui framework -->
+    <script src="js/routes/slidegrid/slidegrid.js"></script>
+    <script src="js/routes/slidegrid/slidegrid.route.js"></script>
+    <script src="js/routes/slidegrid/slide.controller.js"></script>
+    <script src="js/routes/slidegrid/grid.controller.js"></script>
+    <!-- profile module -->
+    <!-- profile related to service -->
+    <script src="js/core/services/profile/getBeaconInfo.service.js"></script>
+    <script src="js/core/services/profile/getBeaconVistNotifications.service.js"></script>
+    <script src="js/core/services/profile/getExhiNotifications.service.js"></script>
+    <script src="js/core/services/profile/getFavlist.service.js"></script>
+    <script src="js/core/services/profile/getJourlist.service.js"></script>
+    <script src="js/core/services/profile/getUser.service.js"></script>
+    <script src="js/core/services/profile/search.service.js"></script>
+    <!-- favlist ui framework -->
+    <script src="js/routes/favlist/favlist.js"></script>
+    <script src="js/routes/favlist/favlist.route.js"></script>
+    <script src="js/routes/favlist/favlist.controller.js"></script>
+    <!-- Jourlist ui framework -->
+    <script src="js/routes/Jourlist/jourlist.js"></script>
+    <script src="js/routes/Jourlist/jourlist.route.js"></script>
+    <script src="js/routes/Jourlist/jourlist.controller.js"></script>
+    <!-- profile ui framework -->
+    <script src="js/routes/profile/profile.js"></script>
+    <script src="js/routes/profile/profile.route.js"></script>
+    <script src="js/routes/profile/profile.controller.js"></script>
+    <!-- notification ui framework -->
+    <script src="js/routes/notificationlist/notification.js"></script>
+    <script src="js/routes/notificationlist/notification.route.js"></script>
+    <script src="js/routes/notificationlist/notification.controller.js"></script>
+    <!-- user ui framework -->
+    <script src="js/routes/user/user.js"></script>
+    <script src="js/routes/user/user.route.js"></script>
+    <script src="js/routes/user/user.controller.js"></script>
+    <!-- map ui framework -->
+    <script src="js/routes/map/map.js"></script>
+    <script src="js/routes/map/map.route.js"></script>
+    <script src="js/routes/map/map.controller.js"></script>
+    <!-- search ui framework -->
+    <script src="js/routes/search/search.js"></script>
+    <script src="js/routes/search/search.route.js"></script>
+    <script src="js/routes/search/search.controller.js"></script>
+    <!-- ibeacons module -->
+    <script src="js/routes/ibeacons/ibeacons.js"></script>
+    <script src="js/routes/ibeacons/ibeacons.route.js"></script>
+    <script src="js/routes/ibeacons/ibeacons.controller.js"></script>
+    <script src="js/core/services/ibeacons/ibeacons.service.js"></script>
+</head>
+
+<body ng-app="starter">
+    <ion-nav-view></ion-nav-view>
+</body>
+
+</html>

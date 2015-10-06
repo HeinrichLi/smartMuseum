@@ -1,0 +1,62 @@
+<ion-view view-title= "{{info.subject}}">
+    <ion-nav-buttons side="left">
+        
+         <a class="button icon-left ion-chevron-left button-clear button-dark" ng-click="go();"></a>
+         
+    </ion-nav-buttons>
+    <ion-content on-swipe-up="loadMore('app.slidepaints',info);">
+    
+        <div class="img"> <img ng-src={{info.posterURL}}></div>
+        <div class="exhibition-collect"><a class="{{Fav}}" on-tap="dofav(info);" >
+                    </a></div>   
+
+        <div class="row">
+            <div class="col">展览日期: </div>
+            <div class="col col-75"> {{date1}}-{{date2}}</div>
+        </div>
+        <div class="row">
+            <div class="col">开幕时间:</div>
+            <div class="col col-75">{{info.startTime}}-{{info.endTime}} <a ng-click="openModal()">加入行程</a></div> 
+        </div>
+
+        <div class="row">
+            <div class="col">展览地点:</div>
+            <div class="col col-75">{{info.address}}<span><a ng-href="#/app/map/{{info.address}}/{{info.id}}">查看路线</a></span> </div>
+        </div>
+        <div class="row">
+            <div class="col">策展人:</div>
+            <div class="col col-75"> {{info.curator}}</div>
+        </div>
+        <div class="row" >
+            <div class="col">类别:</div>
+            <div class="col col-75" > <div ng-repeat="cat in info.artCategory">{{cat.cateName}}</div></div>
+        </div>
+        <div class ="ticket">
+        <a class="button icon-left ion-ios-barcode button-clear button-dark" ng-href="#/app/ticket/{{info.id}}">
+                    电子门票
+                    </a>
+        </div>
+        <div class="desc">
+            <p>主题介绍</p>
+            <div>{{info.decsription}}</div>
+        </div>
+
+        <hr>
+       <div class="row">
+            <a class="img4" ng-click="openpic(0)"><img ng-src={{info.Scene[0].url}}></a>
+            <a class="img4" ng-click="openpic(1)"><img ng-src={{info.Scene[1].url}}></a>
+        </div>
+        <div class="row">
+            <a class="img4" ng-click="openpic(2)"><img ng-src={{info.Scene[2].url}}></a>
+            <a class="img4" ng-click="openpic(3)"><img ng-src={{info.Scene[3].url}}></a>
+        </div>
+
+        <!-- <ion-infinite-scroll ng-if="checked" on-infinite="loadMore('app.slidepaints',info);" distance="10%">
+        </ion-infinite-scroll>
+         -->
+        
+       
+
+
+    </ion-content >
+</ion-view>

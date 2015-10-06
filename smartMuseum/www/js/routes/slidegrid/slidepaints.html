@@ -1,0 +1,56 @@
+<ion-view view-title="{{slideTitle}}">
+  <ion-nav-buttons side="left">
+    <a class="button icon-left ion-chevron-left button-clear button-dark" ng-click="goback()"></a>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <button class="button button-icon button-clear ion-grid" ng-click="go()">
+    </button>
+  </ion-nav-buttons>
+  <ion-content>
+    <ion-slide-box  does-continue="false" auto-play="false" show-pager="false"
+    active-slide="myActiveSlide" on-slide-changed="loadArtInfo($index)" style="margin-top:-20px !important;">
+    <ion-slide ng-repeat="art in arts">
+      <div class="list card" ng-if=art>
+        <div style="height:300px">
+          <img ng-src="{{art.posterURL}}">
+        </div>
+        <div class="item">
+          <h2>作品题目《{{art.title}}》</h2>
+          <p>作者： {{art.artist.name}}</p>
+          <p>年代： {{art.year}}</p>
+          <p>类别： {{art.cateName}}</p>
+          <p>价格： {{art.price}}</p>
+        </div>
+
+          <audio id={{art._id}} ng-if=art>
+              <source ng-src="{{trustSrc(art.mp3)}}" ng-if=art>
+                Your browser does not support the audio element.
+          </audio>
+
+        <div class="item tabs tabs-secondary tabs-icon-left tabs-color-calm">
+          <a class={{art.fav}} on-tap="dofav('收藏');">
+            <i class="icon ion-ios-heart"></i> 收藏
+          </a>
+          <a class={{art.lik}}  on-tap="dolik('赞');">
+            <i class="icon ion-thumbsup"></i> 赞 {{art.praiseno}}
+          </a>
+          <a id="play" class="tab-item" on-tap="playIntro();" ng-show="art.play">
+            <i class="icon ion-play" ></i>
+          </a>
+          <a id="pause" class="tab-item" on-tap="stopIntro();"  ng-show="art.pause">
+            <i class="icon ion-pause" ></i>
+          </a>
+          <a class="tab-item" ng-click="openPopover($event, $index);">
+            <i class="icon ion-share"></i> 分享
+          </a>
+        </div>
+        <div class="item item-body">
+          <img class="full-image" ng-src="{{art.posterURL}}" ng-click="goToSlide(art.posterURL);">
+        </div>
+      </div>
+
+    </ion-slide>
+  </ion-slide-box>
+
+</ion-content>
+</ion-view>

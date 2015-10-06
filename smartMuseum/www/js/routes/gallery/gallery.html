@@ -1,0 +1,25 @@
+<ion-view view-title="展馆详情">
+    <ion-nav-buttons side="left">
+        <a class="button icon-left ion-chevron-left button-clear button-dark" ui-sref="app.tabs.galleries"></a>
+    </ion-nav-buttons>
+    <ion-content>
+
+     <div class="list card" ng-repeat="info in gallery.value">
+            <div class="item item-avatar">
+                <img ng-src="{{posterURL}}">
+                <h2>{{info.name}}</h2>
+                <p>{{info.address}}</p>
+                <p>{{info.longitude}}</p>
+                <p>{{info.latitude}}</p>
+            </div>
+            <div class="item item-body">
+                <img class="full-image" ng-src="{{posterURL}}">
+                <p> 
+                    <!-- {{description}} -->
+                    
+中国国家馆，“东方之冠”凝聚中国元素，象征中国元素。展示主题为“城市发展中的中华智慧”。中国馆建筑外观以“东方之冠”的构思主题，表达中国文化的精神与气质。国家馆居中升起、层叠出挑，成为凝聚中国元素、象征中国精神的雕塑感造型主体——东方之冠；地区馆水平展开，以舒展的平台基座的形态映衬国家馆，成为开放、柔性、亲民、层次丰富的城市广场；二者互为对仗、互相补充，共同组成表达盛世大国主题的统一整体。国家馆、地区馆功能上下分区、造型主从配合，形成独一无二的标志性建筑群体。
+                </p>
+            </div>
+    </div>
+    </ion-content>
+</ion-view>

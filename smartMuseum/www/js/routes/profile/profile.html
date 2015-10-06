@@ -1,0 +1,24 @@
+<ion-view view-title="设置">
+    <ion-nav-buttons side="left">
+        <a class="button icon-left ion-chevron-left button-clear button-dark" ui-sref="app.tabs.main"></a>
+    </ion-nav-buttons>
+    <ion-content>
+        <ion-refresher refreshing-icon = "ion-load-c" on-refresh="doRefresh()">
+        </ion-refresher>
+        <ion-list type='card'>
+            <ion-item class="item item-body">
+                <h2>订阅</h2>
+                <div class="row">
+                    <div class="col col-33 col-center button button-positive button-small {{user.style1}}" on-tap="setSubscribe(0)">国画-山水画</div>&nbsp;
+                    <div class="col col-33 col-center button button-positive button-small {{user.style2}}" on-tap="setSubscribe(1)">国画-花鸟画</div>&nbsp;
+                    <div class="col col-33 col-center button button-positive button-small {{user.style3}}" on-tap="setSubscribe(2)">版画</div>
+                </div>
+                <div class="row">
+                    <div class="col col-33 col-center button button-positive button-small {{user.style4}}" on-tap="setSubscribe(3)">油画</div>&nbsp;
+                    <div class="col col-33 col-center button button-positive button-small {{user.style5}}" on-tap="setSubscribe(4)">书法</div>&nbsp;
+                    <div class="col col-33 col-center button button-positive button-small {{user.style6}}" on-tap="setSubscribe(5)">国画-人物画</div>
+                </div>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

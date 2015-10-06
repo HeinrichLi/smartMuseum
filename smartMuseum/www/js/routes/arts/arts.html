@@ -1,0 +1,20 @@
+<ion-view view-title="展览作品">
+    <ion-nav-buttons side="left">
+        <a class="button icon-left ion-chevron-left button-clear button-dark" ui-sref="{{_nav}}"></a>
+    </ion-nav-buttons>
+    <ion-content>
+        <ion-refresher pulling-text="拉动刷新..." on-refresh="doRefresh()"></ion-refresher>
+        <div class="list margin-list" ng-repeat="art in arts.value">
+            <div class="row">
+                <div class="col col-33">
+                </div>
+                <div class="col col-33">
+                </div>
+                <div class="col col-33">
+                </div>
+            </div>
+        </div>
+        <ion-infinite-scroll ng-if="checked" on-infinite="load_more();" distance="10%">
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-view>

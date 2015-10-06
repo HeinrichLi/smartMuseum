@@ -1,0 +1,30 @@
+<ion-view view-title="展馆介绍">
+    <ion-nav-buttons side="left">
+        <!-- <a class="button icon-left ion-chevron-left button-clear button-dark" ui-sref="{{navigation}}"></a> -->
+         <a class="button icon-left ion-chevron-left button-clear button-dark" ng-click="goall();"></a>
+    </ion-nav-buttons>
+    <ion-content style="top:44px">
+        
+        <div class="fullscreen-image">
+            <img class="blur" ng-src="{{galleryIMG}}">
+        </div> 
+
+        <div class="information-collect"><a class="{{Fav}}" on-tap="dofav(info);" ></a>
+        </div>
+
+        <div class="information-main">
+            <br>
+            <h2>{{gallerytitle}}</h2>
+            <br>
+            <br>
+            <br>
+            <p>{{gallerydesc}}</p>
+            <br>
+            <br>
+            <img ng-src="{{galleryIMG}}">
+            <br>
+            <br>
+        </div>
+	
+    </ion-content>
+</ion-view>

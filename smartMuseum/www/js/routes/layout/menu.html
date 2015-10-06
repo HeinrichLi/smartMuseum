@@ -1,0 +1,49 @@
+<ion-side-menus enable-menu-with-back-views="false">
+    <ion-side-menu-content drag-content = "false">
+        <ion-nav-bar class="bar-stable">
+        </ion-nav-bar>
+        <ion-nav-view name="menuContent"></ion-nav-view>
+    </ion-side-menu-content>
+    <ion-side-menu side="left">
+        <ion-header-bar class="bar-stable">
+            <h1 class="title">个人中心</h1>
+        </ion-header-bar>
+        <ion-content style="top:60px">
+            <ion-list ng-show="myShow()">
+                <ion-item menu-close ng-click="login()">
+                   	登陆
+                </ion-item>
+                <ion-item menu-close ng-click="register()">
+                                             注册
+                </ion-item>
+            </ion-list>
+            <ion-list ng-model="flag" ng-show="myInfo()">
+                <ion-item menu-close>
+                                            欢迎您
+                </ion-item>
+                <ion-item  ui-sref="app.Jourlist" menu-close>
+                   	 行程
+                </ion-item>
+                <ion-item  ui-sref="app.favlist"  menu-close>
+                   	 收藏
+                </ion-item >
+                <ion-item  ui-sref="app.notificationlist" menu-close>
+                                               通知
+                </ion-item >
+                <ion-item ui-sref="app.profile"  menu-close>
+                   	设置
+                </ion-item><ion-item ui-sref="app.search" menu-close>
+                   	搜索
+                </ion-item>
+                <ion-item menu-close>
+                    <a href="#/app/profile">
+                         {{userName}}
+                    </a>
+                </ion-item>
+                <label class="item">
+                    <button menu-close class="button button-block button-light" ng-click="logout()">退出当前账号</button>
+                </label>
+            </ion-list>
+        </ion-content>
+    </ion-side-menu>
+</ion-side-menus>

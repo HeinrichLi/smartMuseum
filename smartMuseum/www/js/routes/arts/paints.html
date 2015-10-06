@@ -1,0 +1,40 @@
+<ion-view view-title="精选作品">
+    <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+    </ion-nav-buttons>
+    <ion-header-bar class="bar-subheader bar-stable"> 
+        <div class="button-bar">
+          <button class="button button-stable" id="button1" ng-click="dofilter('国画-山水画')">山水画</button>
+          <button class="button button-stable" id="button2" ng-click="dofilter('国画-人物画')">人物画</button>
+          <button class="button button-stable" id="button3" ng-click="dofilter('油画')">油画</button>
+          <button class="button button-stable" id="button4" ng-click="dofilter('书画')">书画</button> 
+        </div>
+    </ion-header-bar>
+    <ion-content class="has-subheader">
+        <ion-refresher pulling-text="拉动刷新..." on-refresh="doRefresh()"></ion-refresher>
+        <div class="list margin-list" ng-repeat="art in arts.value">
+            <div class="img">
+                <a>
+                    <img ng-src="{{art.Art.posterURL}}" ng-click="go('app.slidepaints',$index);">
+                </a>                
+                <div class="main">
+                    <p> 作者:{{art.Art.artist.name}}</br>
+                        年代:{{art.Art.year}}</br>
+                        类别:{{art.Art.cateName}}
+                    </p>
+                </div>
+                <div class="main_1">
+                    <p> 作者:{{art.Art.artist.name}}</br>
+                        年代:{{art.Art.year}}</br>
+                        类别:{{art.Art.cateName}}
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <ion-infinite-scroll ng-if="!noMoreItemsAvailable" on-infinite="loadMore(5)" distance="10%">
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,29 @@
+<ion-view view-title="精选展馆">
+    <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-icon button-clear ion-ios-location" ng-click="modal.show()">
+         {{ret.choice}}
+        </button>
+    </ion-nav-buttons>
+    <ion-content >
+        <ion-refresher pulling-text="拉动刷新..." on-refresh="doRefresh()"></ion-refresher>
+        <div class="list margin-list" ng-repeat="gallery in galleries">
+            <div class="img">
+                <a>
+                    <img ng-src="{{gallery.posterURL}}" ng-click="go('app.exhibitions',gallery);">
+                </a>
+                <div class="galleries-name">机构名称:{{gallery.name}}</div>
+                <div class="galleries-ing">展览进行中:{{gallery.ing}}</div>
+                <div class="galleries-total">展览总数:{{gallery.total}}</div>
+  
+                <div class="galleries-information"><a class="button icon-left ion-ios-information button-clear button-dark" ng-click="go('app.information',gallery);">
+                    </a></div>
+            </div>
+        </div>
+        <ion-infinite-scroll ng-if="checked" on-infinite="load_more();" distance="10%">
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-view>

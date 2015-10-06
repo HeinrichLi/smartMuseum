@@ -1,0 +1,40 @@
+<ion-view view-title="直播展览" cache-view="false">
+    <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-icon button-clear ion-ios-location" ng-click="modal.show()">
+         {{ret.choice}}
+        </button>
+    </ion-nav-buttons>
+    <ion-content>
+        <ion-refresher on-refresh="doRefresh()"></ion-refresher>
+        <div class="list margin-list" ng-repeat="exhibition in subexhibitions | orderBy:'index'">
+            <div class="img">
+                <a>
+                    <img ng-src="{{exhibition.posterURL}}" ng-click="go('app.exhibition',exhibition);">
+                </a>
+            </div>
+            <div class="main">
+                <p> 主题:{{exhibition.subject}}</br>
+                    单位:{{exhibition.vanue}}</br>
+                    时间:{{exhibition.startDate}}
+                </p>
+            </div>
+            <div class="main_1">
+                <p> 主题:{{exhibition.subject}}</br>
+                    单位:{{exhibition.vanue}}</br>
+                    时间:{{exhibition.startDate}}
+                </p>
+            </div>
+            <div class="main-front-position">
+                <p>
+                    {{exhibition.ExhiStatus}}
+                </p>
+            </div>
+        </div>
+        <ion-infinite-scroll ng-if="checked" on-infinite="load_more();" distance="10%">
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-view>

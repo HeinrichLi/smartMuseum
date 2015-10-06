@@ -1,0 +1,24 @@
+<ion-modal-view >
+	<ion-header-bar class="bar-dark">
+		<h1 class="title">添加行程</h1>
+	</ion-header-bar>
+			<ion-content>
+			<div class="list" style="margin-top:60px!important;">
+  		<a class="item-input">
+  			<span class="input-label">选择行程日期</span>
+  			<input type="date" ng-model="myModal.planDate">
+  		</a>
+  		<ion-toggle toggle-class="toggle-calm" ng-model="myModal.addCalendar" ng-checked="myModal.addCalendar">
+  			加入手机日历
+  		</ion-toggle>
+
+			</div>
+			</ion-content>
+      <ion-footer-bar>
+       <div class="button-bar">
+       <a class="button button-clear button-balanced icon ion-checkmark-circled" ng-click="addPlan()">确定</a>
+       <a class="button button-clear icon ion-close-circled" ng-click="closeModal()">取消</a>
+      </div>
+    </ion-footer-bar>
+
+</ion-modal-view>

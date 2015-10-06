@@ -1,0 +1,33 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-dark">
+        <h1 class="title">查询条件</h1>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="close()">关闭</button>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+        <form ng-submit="confirm()">
+            <div class="list">
+                <a class="item-input">
+                    <span class="input-label">开始日期</span>
+                    <input type="date" ng-model="date.start">
+                </a>
+                <a class="item-input">
+                    <span class="input-label">结束日期</span>
+                    <input type="date" ng-model="date.end">
+                </a>
+            </div>
+            <div class="list card">
+                <a class="item item-icon-left ">
+                    <i class="icon ion-social-reddit"></i> 请选择展馆信息
+                </a>
+                <ion-radio ng-repeat="gallery in galleries.value" ng-model="ret.choice" ng-value="gallery">
+                    {{gallery.name}}
+                </ion-radio>
+            </div>
+            <label class="item">
+                <button class="button button-block button-positive" type="submit" ng-if="title">确定</button>
+            </label>
+        </form>
+    </ion-content>
+</ion-modal-view>

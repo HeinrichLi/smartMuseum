@@ -1,0 +1,16 @@
+<ion-view view-title="行程">
+	<ion-nav-buttons side="left">
+        <a class="button icon-left ion-chevron-left button-clear button-dark" ui-sref="app.tabs.main"></a>
+    </ion-nav-buttons>
+    <ion-content>
+        <ion-refresher refreshing-icon = "ion-load-c" on-refresh="doRefresh()">
+        </ion-refresher>
+          <ion-list type ='card'>
+    		<ion-item ng-repeat= "journey in journeys" on-tap = "go('{{journey.exhibition._id}}')">
+    			<p> 日期：{{journey.date}}</p>
+    			<p> 主题：{{journey.exhibition.subject}}</P>
+    			<p> 画廊地址：{{journey.exhibition.address}}</p>
+    		</ion-item>
+    	</ion-list>
+    </ion-content>
+</ion-view>

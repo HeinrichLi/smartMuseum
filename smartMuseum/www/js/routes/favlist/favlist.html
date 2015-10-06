@@ -1,0 +1,98 @@
+<ion-view view-title="收藏">
+	<ion-nav-buttons side="left">
+        <a class="button icon-left ion-chevron-left button-clear button-dark" ui-sref="app.tabs.main"></a>
+    </ion-nav-buttons>
+
+    <ion-content scroll="false" style="top:60px">
+        <div style="position:relative;z-index:1;background-color:white">
+            <div class = 'row'>
+                <div class = 'col col-center tab-button button-small tab-button-outline' ng-class="{'tab-button-actived':iscurrentchoosed(0)}"   on-tap ="jumpto(0)">展会</div>
+                <div class = 'col col-center tab-button button-small tab-button-outline' ng-class="{'tab-button-actived':iscurrentchoosed(1)}" on-tap = "jumpto(1)"
+                style="margin:0px -1px">展品</div>
+                <div class = 'col col-center tab-button button-small tab-button-outline' ng-class="{'tab-button-actived':iscurrentchoosed(2)}" on-tap = "jumpto(2)">展馆</div>
+            </div>
+        </div>
+     </ion-content>
+
+ 	<!--ion-content style="top:92px"-->
+        <!--ion-refresher refreshing-icon = "ion-load-c" on-refresh="doRefresh()"-->
+        <!--ion-refresher refreshing-icon = "ion-load-c" on-refresh="doRefresh()">
+        </ion-refresher-->
+
+        <ion-slide-box on-slide-changed="slideHasChanged()"  show-pager="false">
+            <ion-slide>
+            <ion-content style="top:111px">
+            <div ng-if="!exhibitions.length">
+                <h3 style="text-align:center;margin-top:100px;color:gray">暂时没有收藏哦！</h3>
+            </div>
+            <div class="list"  ng-repeat="exhibition in exhibitions">
+                <div class="img">
+                    <a>
+                    <img ng-src="{{exhibition.exhibition.posterURL}}" ng-click="go_exhibition('app.exhibition',exhibition.exhibition);">
+                </a>
+                </div>
+                <div class="main">
+                    <p> 主题:{{exhibition.exhibition.subject}}</br>
+                        单位:{{exhibition.exhibition.vanue}}</br>
+                        时间:{{exhibition.exhibition.startDate}}
+                    </p>
+                </div>
+                <div class="main_1">
+                    <p> 主题:{{exhibition.exhibition.subject}}</br>
+                        单位:{{exhibition.exhibition.vanue}}</br>
+                        时间:{{exhibition.exhibition.startDate}}
+                    </p>
+                </div>
+                <div class="main-front-position">
+                    <p>
+                        展览中...
+                    </p>
+                </div>
+            </div>
+            </ion-content>
+            </ion-slide>
+            <ion-slide>
+             <ion-content style="top:111px">
+                <div ng-if="!arts.length">
+                    <h3 style="text-align:center;margin-top:100px;color:gray">暂时没有收藏哦！</h3>
+                </div>
+                <div class="list margin-list" ng-repeat="art in arts">
+                <div class="img">
+                <a>
+                    <img ng-src="{{art.Art.posterURL}}" ng-click="go_art('app.slidepaints',$index)">
+                </a>
+                </div>
+                <div class="main">
+                <p> 作者:{{art.Art.artist.name}}</br>
+                    年代:{{art.Art.year}}</br>
+                    类别:{{art.Art.cateName}}
+                </p>
+                </div>
+                <div class="main_1">
+                <p> 作者:{{art.Art.artist.name}}</br>
+                    年代:{{art.Art.year}}</br>
+                    类别:{{art.Art.cateName}}
+                </p>
+                </div>
+                </div>
+                 </ion-content>
+            </ion-slide>
+            <ion-slide>
+             <ion-content style="top:111px">
+                <!--div ng-include="js/routes/favlist/favlist-exhibition.html"></div-->
+                <div ng-if="!gallerys.length">
+                    <h3 style="text-align:center;margin-top:100px;color:gray">暂时没有收藏哦！</h3>
+                </div>
+                <div class="list margin-list" ng-repeat="gallery in gallerys">
+                    <div class="img">
+                    <a>
+                        <img ng-src="{{gallery.gallery.posterURL}}" ng-click="go_gallery('app.exhibitions',gallery.gallery);">
+                    </a>
+                    <div class="galleries-name">机构名称:{{gallery.gallery.name}}</div>
+                    </div>
+                </div>
+                 </ion-content>
+            </ion-slide>
+        </ion-slide-box>
+
+</ion-view>

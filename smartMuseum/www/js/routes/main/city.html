@@ -1,0 +1,33 @@
+<ion-modal-view>
+    <ion-header-bar>
+        <h1 class="title">城市</h1>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="close()">关闭</button>
+        </div>
+    </ion-header-bar>
+    <ion-content style="top:60px">
+        <form ng-submit="doSubmit()">
+            <div class="list">
+                <!--                 <div class="item item-divider">
+                    全国
+                </div>
+                <ion-checkbox ng-repeat="item in aCitys" ng-model="item.checked" ng-checked="item.checked" ng-change="fChange(item)">
+                    {{item.text}}
+                </ion-checkbox> -->
+                <cus-radio-fix ng-repeat="item in items" ng-model="ret.choice" ng-value="item">
+                    {{item}}
+                </cus-radio-fix>
+<!--                 <div class="list">
+                    <ion-radio-fix ng-model="formData.color" ng-value="'red'" name="color">Red</ion-radio-fix>
+                    <ion-radio-fix ng-model="formData.color" ng-value="'blue'" name="color">Blue</ion-radio-fix>
+                    <ion-radio-fix ng-model="formData.color" ng-value="'yellow'" name="color">Yellow</ion-radio-fix>
+                </div> -->
+                <label class="item">
+                    <button class="button button-block button-positive" type="submit" ng-disabled="disable">
+                        确定
+                    </button>
+                </label>
+            </div>
+        </form>
+    </ion-content>
+</ion-modal-view>

@@ -1,0 +1,17 @@
+<ion-view view-title={{mytitle}} >
+  <ion-nav-buttons side="left">
+      <a class="button icon-left ion-chevron-left button-clear button-dark" ng-click="goback()"></a>
+  </ion-nav-buttons>
+
+  <ion-content style="background: #999999 !important">
+    <div>
+    <div collection-repeat="art in arts" force-refresh-images="true"
+    item-height="20%" item-width="33%" style="display: flex;align-items: right;justify-content: right;padding:2px">
+    <img style="height:100%;width:100%" ng-src="{{art.posterURL}}" ng-click="goslide($index)">
+    <div class="main">{{art.title}}</div>
+  </div>
+  </div>
+   <ion-infinite-scroll ng-if="!noMoreItemsAvailable" on-infinite="loadMore(15)" distance="10%">
+  </ion-infinite-scroll>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,19 @@
+<ion-view view-title="今日头条">
+    <ion-nav-buttons side="left">
+        <a class="button icon-left ion-chevron-left button-clear button-dark" ui-sref="app.tabs.main"></a>
+    </ion-nav-buttons>
+    <ion-content>
+        <div class="list card">
+            <div class="item item-avatar">
+                <img ng-src="{{posterURL}}">
+                <h2>{{title}}</h2>
+                <p>{{subTitle}}</p>
+            </div>
+            <div class="item item-body">
+                <img class="full-image" ng-src="{{posterURL}}">
+                <p> {{description}}
+                </p>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

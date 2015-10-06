@@ -1,0 +1,44 @@
+<ion-modal-view>
+    <ion-header-bar>
+        <h1 class="title" ng-if="title">{{title}}</h1>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="closeLogin()">关闭</button>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+        <form ng-submit="doLogin()" >
+            <div class="list" style="margin-top:60px!important;">
+              <label class="item item-input">
+                  <i class="icon ion-ios-person-outline positive"></i>
+                  <input type="text" ng-model="loginData.username" placeholder="用户ID">
+              </label>
+                <div ng-show="checkSomething()">
+                <label class="item item-input">
+                    <i class="icon ion-ios-person-outline positive"></i>
+                    <input type="text" ng-model="loginData.nickname" placeholder="用户昵称">
+                </label>
+              </div>
+                <label class="item item-input">
+                    <i class="icon ion-ios-unlocked-outline positive"></i>
+                    <input type="password" ng-model="loginData.password" placeholder="输入密码">
+                </label>
+                <div ng-show="checkSomething()">
+                    <label class="item item-input">
+                        <i class="icon ion-ios-unlocked-outline positive"></i>
+                        <input type="password" ng-model="loginData.confirm" placeholder="确认密码">
+                    </label>
+                </div>
+                <!-- <div ng-show="formMessage == 'forgetPassword'">
+                    忘记密码!
+                </div> -->
+                <label class="item">
+                    <button class="button button-block button-positive" type="submit" ng-if="title" >{{title}}</button>
+                </label>
+                <!-- <div class="item" ng-model="loginData">
+                    {{user.user}}
+                </div>
+               -->
+            </div>
+        </form>
+    </ion-content>
+</ion-modal-view>

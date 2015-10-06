@@ -1,0 +1,30 @@
+<ion-view view-title="通知">
+	<ion-nav-buttons side="left">
+        <a class="button icon-left ion-chevron-left button-clear button-dark" ui-sref="app.tabs.main"></a>
+    </ion-nav-buttons>
+    <ion-content style="top:60px">
+    <ion-list type='card'>
+    	<div class = 'row'>
+    		<div class = 'col col-center button button-positive button-small button-outline' on-tap = "ExhibitionNotfication()">展会</div>&nbsp;&nbsp;
+    		<div class = 'col col-center button button-positive button-small button-outline' on-tap = "PaintnNotfication()">展品</div>
+    	</div>
+        <ion-list type ='card' ng-show = "showExhibitionNotification">
+            <ion-item class = "item item-thumbnail-left" ng-repeat = "ExhiNotification in ExhiNotifications" on-tap = "goExhi('{{ExhiNotification.Exhi._id}}')">
+                <img ng-src="{{ExhiNotification.Exhi.posterThumbnailURL}}">
+                <p> 展馆名称：{{ExhiNotification.Exhi.vanue}}</p>
+                <p> 主题：{{ExhiNotification.Exhi.subject}}</P>
+                <p> 开始日期：{{ExhiNotification.Exhi.startDate}}</p>    
+                </ion-item>
+        </ion-list>
+        <ion-list type ='card' ng-show = "showPaintNotification">
+            <ion-item class = "item item-thumbnail-left" ng-repeat = "visit in visits" on-tap = "goPaint({{visit.minor}})">
+                <img ng-src="./img/notification_art.jpg">
+                <!--li class="ion-android-notifications-none" data-pack="android" data-tags="" style="display: inline-block;">
+                </li-->
+                <p>日期：{{visit.date}}</p>
+                <p>时间： {{visit.startTime}}</p>
+                </ion-item> 
+        </ion-list>
+    </ion-list>
+    </ion-content>
+</ion-view>

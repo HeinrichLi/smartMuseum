@@ -1,0 +1,38 @@
+<ion-view view-title="展品详情">
+    <ion-nav-buttons side="left">
+        <a class="button icon-left ion-chevron-left button-clear button-dark" ng-click="go()"></a>
+    </ion-nav-buttons>
+    <ion-content>
+        <ion-refresher pulling-text="拉动刷新..." on-refresh="doRefresh()"></ion-refresher>
+        <div class="list card">
+            <div class="item item-avatar">
+                <img ng-src="{{paint.value[0].posterThumbnailURL}}">
+                <h2>作品题目《{{paint.value[0].title}}》</h2>
+                <p>作者： {{paint.value[0].artist.name}}</p>
+                <p>年代： {{paint.value[0].year}}</p>
+                <p>类别： {{paint.value[0].cateName}}</p>
+                <p>价格： {{paint.value[0].price}}</p>
+            </div>
+            <div class="item item-body">
+                <img class="full-image" ng-src="{{paint.value[0].posterURL}}" ng-click="goToSlide(2);">
+                <p>
+                    {{paint.value[0].decsription}}
+                </p>
+                <p>
+                    <a class="subdued">{{praiseno}} 赞</a>
+                </p>
+            </div>
+            <div class="item tabs tabs-secondary tabs-icon-left tabs-color-calm">
+                <a class="{{fav}}" on-tap="dofav('收藏');">
+                    <i class="icon ion-ios-heart"></i> 收藏
+                </a>
+                <a class="{{lik}}" on-tap="dolik('赞');">
+                    <i class="icon ion-thumbsup"></i> 赞
+                </a>
+                <a class="tab-item" ng-click="openPopover($event);">
+                    <i class="icon ion-share"></i> 分享
+                </a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
