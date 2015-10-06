@@ -1,0 +1,287 @@
+/* Empty. Add your own CSS if you like */
+
+
+/*1.ä½�ç½®å±žæ€§(position, top, right, z-index, display, floatç­‰)
+2.å¤§å°�(width, height, padding, margin)
+3.æ–‡å­—ç³»åˆ—(font, line-height, letter-spacing, color- text-alignç­‰)
+4.èƒŒæ™¯(background, borderç­‰)
+5.å…¶ä»–(animation, transitionç­‰)*/
+
+
+/*commond style*/
+ion-content{
+    background-color: #FFFFF4;
+    color: #7B7B7B;
+}
+
+.img {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -moz-box-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    display: block;
+    padding: 0px;
+    width: 94%;
+    height: 220px;
+    margin-bottom: 10px;
+    margin-left: 12px;
+}
+
+.transparent{
+   display: block;
+   filter: alpha(Opacity=20);
+   -moz-opacity: 0.2;
+   opacity: 0.2;
+   background: #000;
+}
+
+.img4 {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -moz-box-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    float: left;
+    padding: 0px;
+    width: 150px;
+    height: 150px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.img4 img {
+    height: 150px;
+    width: 150px;
+}
+
+.img img {
+    height: 100%;
+    width: 100%;
+}
+
+.margin-list {
+    margin: -10px;
+}
+
+.header {
+    filter: alpha(Opacity=20);
+    -moz-opacity: 0.2;
+    opacity: 0.2;
+    background: #000;
+}
+
+
+/*main page style*/
+
+.main,
+.main_1 {
+    position: absolute;
+    top: 60%;
+    left: 5%;
+    z-index: 2;
+    color: #fff;
+}
+
+.main {
+    filter: alpha(Opacity=20);
+    -moz-opacity: 0.2;
+    opacity: 0.2;
+    background: #000;
+}
+
+.main-front-position {
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+    z-index: 999;
+    color: #fff;
+}
+/*Exhibition*/
+.exhibition-collect{
+    position: absolute;
+    top: 175px;
+    right: 5%;
+    z-index: 999;
+    filter: alpha(Opacity=70);
+    -moz-opacity: 0.7;
+    opacity: 0.7;
+
+}
+
+.desc{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.col a{
+    color: #B870FF;
+    text-decoration: none;
+}
+
+.button icon-left ion-ios-barcode button-clear button-light
+{
+    color: #B8B8E6;
+    text-decoration: none;
+}
+
+.BG{  
+  margin-top: 0px;  
+  width: 100%;
+  height: 626px;
+  background: url('../img/bg.jpg');
+}
+
+/*galleries page */
+
+.galleries-name {
+    position: absolute;
+    bottom: 10%;
+    left: 5%;
+    z-index: 999;
+    color: #fff;
+}
+
+.galleries-ing {
+    position: absolute;
+    bottom: 20%;
+    right: 10%;
+    z-index: 999;
+    color: #fff;
+}
+
+.galleries-total {
+    position: absolute;
+    bottom: 5%;
+    right: 12%;
+    z-index: 999;
+    color: #fff;
+}
+.galleries-collect {
+    position: absolute;
+    top: 3%;
+    right: 8%;
+    z-index: 999;
+    filter: alpha(Opacity=90);
+    -moz-opacity: 0.9;
+    opacity: 0.9;
+
+}
+.galleries-information {
+    position: absolute;
+    top: 60px;
+    right: 1%;
+    z-index: 999;
+    filter: alpha(Opacity=90);
+    -moz-opacity: 0.9;
+    opacity: 0.9;
+
+}
+
+/*Paints*/
+.paints-collect {
+    color: red;
+    position: absolute;
+    top: 3%;
+    right: 1%;
+    z-index: 999;
+    filter: alpha(Opacity=70);
+    -moz-opacity: 0.7;
+    opacity: 0.7;
+
+}
+
+/*information */
+.information-position
+{
+width: 100%;
+height: 20%;
+filter: alpha(Opacity=60);
+-moz-opacity: 0.6;
+opacity: 0.6;
+background-color: #000;
+
+}
+
+.information-position h1{
+    margin-top: 30px;
+    text-align: center;
+    color: #FFF;
+}
+
+.information-collect {
+    position: absolute;
+    top:0px;
+    right: 1%;
+    z-index: 999;
+}
+
+.information-main {
+    width: 100%;
+    height: 100%;
+    margin-left: 0%;
+    color: #fff;
+    filter: alpha(Opacity=60);
+    -moz-opacity: 0.6;
+    opacity: 0.6;
+    background-color: #000;
+
+   }
+
+.information-main h2{
+    text-align: center;
+
+    color: #FFF;
+}
+
+.information-main p{
+    width: 90%;
+    margin-left: 5%;
+    text-align: center;
+}
+.information-main img{
+    width: 100%;
+    
+}
+
+/*app.sreach 
+*************/
+
+.tab-button
+{   
+    position:relative;
+    margin: 0;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 2px;
+    vertical-align: top;
+    text-align: center;
+    text-overflow:ellipsis;
+    cursor: pointer;
+}
+
+
+.tab-button-outline
+{
+    border-color:#387ef5;
+    background:transparent;
+    color:#387ef5;
+}
+
+.tab-button-actived{
+  background-color:#387ef5;
+  box-shadow:none;
+  color:#fff;
+}
+
+/*******************
+iBeacons moudle
+************************/
+.flexslider {margin: 0; padding: 0;}
+.flexslider .slides > li {display: none; -webkit-backface-visibility: hidden;} /* Hide the slides before the JS is loaded. Avoids image jumping */
+.flexslider .slides img {width: 100%; display: block;}
+.flexslider .slides .active{border:2px solid yellowgreen;}
+.flex-pauseplay span {text-transform: capitalize;}
+
